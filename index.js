@@ -17,6 +17,11 @@ app.post("/contact", (req,res) => {
     res.status(200).json({message: "Contact information has been received!", name, email });
 });
 
+app.use((req,res) => {
+    res.status(404).send("Route not found!");
+
+});
+
 app.get("/user/:id", (req,res) => {
     const userId = req.params.id;
     res.json({message: `User ID: ${userId}`}); 
