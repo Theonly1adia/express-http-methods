@@ -15,7 +15,17 @@ app.get("/about", (req, res) => {
 app.post("/contact", (req,res) => {
     const c = {name: "Adia"}
     res.status(200).json(c)
+});
+
+app.get("/user/:id", (req,res) => {
+    const userId = req.params.id;
+    res.json({messgae: `User ID: ${userId}`});
 })
+
+app.get("/search", (req,res) => {
+    const {term, sort } = req.query;
+    res.json({term, sort});
+}) 
 
 app.listen(3001, () => {
     console.log("Server started on http://localhost:3001");
